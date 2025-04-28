@@ -50,18 +50,18 @@ import { SITE } from "@consts";
   </Container>
 </header>
 <script>
-  // Función para obtener la IP pública usando ipify
   async function getIp() {
-      try {
-          const response = await fetch('https://api.ipify.org?format=json');
-          const data = await response.json();
-          // Cambiar el contenido del div con la IP completa
-          document.getElementById('ipDisplay').innerHTML = `nc ${data.ip} 1717 -e sh`;
-      } catch (error) {
-          console.error('Error al obtener la IP:', error);
-      }
-  }
+    try {
+        const response = await fetch('https://api.ipify.org?format=json');
+        const data = await response.json();
+        const ipDisplay = document.getElementById('ipDisplay');
+        if (ipDisplay) {
+            ipDisplay.innerHTML = `nc ${data.ip} 1717 -e sh`;
+        }
+    } catch (error) {
+        console.error('Error al obtener la IP:', error);
+    }
+}
 
-  // Ejecutar la función al cargar la página
-  window.onload = getIp;
+document.addEventListener('DOMContentLoaded', getIp);
 </script>
