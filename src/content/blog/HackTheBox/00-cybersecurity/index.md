@@ -1,9 +1,9 @@
 ---
-title: "TryHackMe - TheStickerShop"
-description: "CTF de THM en el cual se explota XSS (Cross-Site Scripting)"
-date: "2025-03-17"
+title: "HackTheBox - Test"
+description: "Solo un testeo de carpetas del blog, nada raro."
+date: "2025-03-15"
 tags:
-  - XSS
+  - HackTheBox
 ---
 
 ---
