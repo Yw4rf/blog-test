@@ -1,9 +1,9 @@
 ---
 title: "TryHackMe - TheStickerShop"
-description: "CTF de THM en el cual se explota XSS (Cross-Site Scripting)"
-date: "2025-03-17"
+description: "En este WriteUp de la máquina TheStickerShop de la plataforma de TryHackMe se analizó un servidor con los puertos 22/tcp (SSH) y 8080/tcp (HTTP) abiertos. Si bien no se detectaron vulnerabilidades en el servicio SSH, en el servidor web por otro lado se identificó una vulnerabilidad de XSS (Cross-Site Scripting) en el formulario de la sección Feedback, que permitió ejecutar código JavaScript malicioso en el navegador. Esto se explotó para realizar data exfiltration del archivo protegido flag.txt."
+date: "2024-12-05"
 tags:
-  - XSS
+  - TryHackMe
 ---
 
 ---
