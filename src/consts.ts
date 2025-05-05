@@ -29,20 +29,24 @@ export const SOCIALS: Socials = [
     NAME: "Linkedin",
     HREF: "https://linkedin.com/in/Yw4rf",
     ICON: "fab fa-linkedin-in",
-  },
-  {
-    NAME: "Telegram",
-    HREF: "https://t.me/Yw4rf",
-    ICON: "fab fa-telegram-plane",
+    COLOR: "#0A66C2",
   },
   {
     NAME: "GitHub",
     HREF: "https://github.com/Yw4rf",
     ICON: "fab fa-github",
+    COLOR: "#FF6B6B",
+  },
+  {
+    NAME: "Telegram",
+    HREF: "https://t.me/Yw4rf",
+    ICON: "fab fa-telegram-plane",
+    COLOR: "#0088cc",
   },
   {
     NAME: "X (Twitter)",
     HREF: "https://twitter.com/Yw4rf",
     ICON: "fab fa-x-twitter", // o "fab fa-twitter" si no usás la nueva versión
+    COLOR: "#F9C74F",
   },
 ];
