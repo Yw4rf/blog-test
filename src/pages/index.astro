@@ -26,17 +26,20 @@ const projects: CollectionEntry<"projects">[] = (
 <Layout title={HOME.TITLE} description={HOME.DESCRIPTION}>
   <Container>
     <aside data-pagefind-ignore>
-      <div class="mb-6 mt-[-25px]">
+      <div class="mb-6 mt-[-25px] relative">
         <Image src={indexImg} alt="gif-yw4rf" class="w-full h-60" />
-      </div>
+        <h2 id="ipDisplay" class="text-[#44be2b] mt-[-9px] font-bold"></h2>
+      </div>      
       <h1 class="font-semibold text-black dark:text-white">
         Estudiante de Redes Informáticas | Cybersecurity | SOC | DFIR | Hands-on Penetration Testing | CTF Player
       </h1>
       <div class="space-y-14">
         <section>
-          <article class="space-y-2">
+          <article class="space-y-0">
             <span>
-              <p>Soy estudiante de Redes Informáticas con formación autodidacta en ciberseguridad, enfocado en detección de intrusos y análisis forense. También tengo experiencia práctica en penetration testing y análisis de sistemas. Uso herramientas como Nmap, Metasploit, Wireshark, y trabajo con Linux y Windows AD. Automatizo tareas con Python y Bash y comparto mis aprendizajes y writeups de CTF en este blog.</p>
+              <p>💻 Soy estudiante de Redes Informáticas con formación autodidacta en 🛡️ ciberseguridad, especializado en 🔍 detección de intrusos y 🧪 análisis forense.
+                Cuento con experiencia práctica en 🧨 penetration testing y 🔧 análisis de sistemas.
+                Resido en 📍 Buenos Aires, Argentina.</p>
             </span>
           </article>
         </section>
@@ -44,22 +47,8 @@ const projects: CollectionEntry<"projects">[] = (
           <h2 class="font-semibold text-black dark:text-white">
             ¡Hablemos!
           </h2>
-          <ul class="not-prose flex flex-wrap gap-2">
-            {
-              SOCIALS.map((SOCIAL) => (
-                <li class="flex gap-x-2 text-nowrap">
-                  <Link
-                    href={SOCIAL.HREF}
-                    external
-                    aria-label={`${SITE.TITLE} on ${SOCIAL.NAME}`}
-                  >
-                    {SOCIAL.NAME}
-                  </Link>
-                  {"/"}
-                </li>
-              ))
-            }
-            <li class="line-clamp-1">
+          <ul class="not-prose flex flex-col gap-2">
+            <li>
               <Link
                 href={`mailto:${SITE.EMAIL}`}
                 aria-label={`Email ${SITE.TITLE}`}
@@ -67,15 +56,30 @@ const projects: CollectionEntry<"projects">[] = (
                 {SITE.EMAIL}
               </Link>
             </li>
+            {
+              SOCIALS.map((SOCIAL) => (
+                <li class="flex items-center gap-x-2">
+                  <Link
+                    href={SOCIAL.HREF}
+                    external
+                    aria-label={`${SITE.TITLE} on ${SOCIAL.NAME}`}
+                    class="flex items-center gap-x-2"
+                  >
+                    <i class={SOCIAL.ICON}></i>
+                    {SOCIAL.NAME}
+                  </Link>
+                </li>
+              ))
+            }
           </ul>
-        </section>
+        </section>        
 
         <section class="animate space-y-6">
           <div class="flex flex-wrap items-center justify-between gap-y-2">
             <h2 class="font-semibold text-black dark:text-white">
-              Latest posts
+              Ultimos posts
             </h2>
-            <Link href="/blog"> See all posts </Link>
+            <Link href="/blog"> Ver todos los posts </Link>
           </div>
           <ul class="not-prose flex flex-col gap-4">
             {
@@ -91,9 +95,9 @@ const projects: CollectionEntry<"projects">[] = (
         <section class="animate space-y-6">
           <div class="flex flex-wrap items-center justify-between gap-y-2">
             <h2 class="font-semibold text-black dark:text-white">
-              Recent projects
+              Proyectos recientes
             </h2>
-            <Link href="/projects"> See all projects </Link>
+            <Link href="/projects"> Ver todos los proyectos </Link>
           </div>
           <ul class="not-prose flex flex-col gap-4">
             {
@@ -109,3 +113,20 @@ const projects: CollectionEntry<"projects">[] = (
     </aside>
   </Container>
 </Layout>
+<script>
+  async function getIp() {
+    try {
+        const response = await fetch('https://api.ipify.org?format=json');
+        const data = await response.json();
+        const ipDisplay = document.getElementById('ipDisplay');
+        if (ipDisplay) {
+            ipDisplay.innerHTML = `>> nc ${data.ip} 1717 -e sh`;
+        }
+    } catch (error) {
+        console.error('Error al obtener la IP:', error);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', getIp);
+</script>
+<script src="https://kit.fontawesome.com/7679e0cb88.js" crossorigin="anonymous"></script>

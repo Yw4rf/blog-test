@@ -10,7 +10,7 @@ import { SITE } from "@consts";
     <div class="flex flex-wrap justify-between gap-y-2">
       <Link href="/" underline={false}>
         <div class="font-semibold">
-          {SITE.TITLE}&nbsp;🛡️ <span id="ipDisplay"></span> 
+          {SITE.TITLE}&nbsp;  
         </div>
       </Link>
       <nav class="flex items-center gap-1 text-sm">
@@ -49,19 +49,3 @@ import { SITE } from "@consts";
     </div>
   </Container>
 </header>
-<script>
-  async function getIp() {
-    try {
-        const response = await fetch('https://api.ipify.org?format=json');
-        const data = await response.json();
-        const ipDisplay = document.getElementById('ipDisplay');
-        if (ipDisplay) {
-            ipDisplay.innerHTML = `nc ${data.ip} 1717 -e sh`;
-        }
-    } catch (error) {
-        console.error('Error al obtener la IP:', error);
-    }
-}
-
-document.addEventListener('DOMContentLoaded', getIp);
-</script>
