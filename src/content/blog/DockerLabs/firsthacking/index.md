@@ -3,7 +3,7 @@ title: "DockerLabs - FirstHacking"
 description: "Vulnerabilidad en la versión 2.3.4 de vsftpd, un servicio FTP que opera en el puerto 21."
 date: "2024-09-16"
 tags:
-  - 
+  - Linux
 ---
 
 ---
