@@ -3,8 +3,8 @@ import type { Metadata, Site, Socials } from "@types";
 export const SITE: Site = {
   TITLE: "トビアス・F (Yw4rf)",
   DESCRIPTION: "Tobias Gabriel F. | Cybersecurity Enthusiast | SOC | DFIR | Hands-on Penetration Testing | CTF Player",
-  EMAIL: "tobifgabriel@gmail.com",
-  NUM_POSTS_ON_HOMEPAGE: 5,
+  EMAIL: "yw4rf@protonmail.com",
+  NUM_POSTS_ON_HOMEPAGE: 2,
   NUM_PROJECTS_ON_HOMEPAGE: 3,
 };
 
