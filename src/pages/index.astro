@@ -8,7 +8,7 @@ import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 
 import { Image } from "astro:assets";
-import indexImg from "../../src/assets/gifs/DOSU.gif";
+import indexImg from "../../src/assets/gifs/g1UX.gif";
 
 const blog = (await getCollection("blog"))
   .filter((post) => !post.data.draft)
@@ -27,26 +27,28 @@ const projects: CollectionEntry<"projects">[] = (
   <Container>
     <aside data-pagefind-ignore>
       <div class="mb-6 mt-[-25px] relative">
-        <Image src={indexImg} alt="gif-yw4rf" class="w-full h-auto" />
+        <Image src={indexImg} alt="gif-yw4rf" class="w-full h-60" />
         <h2 id="ipDisplay" class="text-[#4AF626] mt-[-9px] font-bold"></h2>
       </div>      
       <h1 class="font-semibold text-black dark:text-white">
-        Estudiante de Redes Informáticas | Cybersecurity | SOC | DFIR | Hands-on Penetration Testing | CTF Player
+        Tobias Gabriel F. | Cybersecurity Enthusiast | SOC | DFIR | Hands-on Penetration Testing | CTF Player
       </h1>
       <div class="space-y-14">
         <section>
           <article class="space-y-0">
             <span>
-              <p>💻 Soy estudiante de Redes Informáticas con formación autodidacta en 🛡️ ciberseguridad, especializado en 🔍 detección de intrusos y 🧪 análisis forense.
-                Cuento con experiencia práctica en 🧨 penetration testing y 🔧 análisis de sistemas.
-                Resido en 📍 Buenos Aires, Argentina.</p>
+              <p>
+                I'm a Computer Networking student with a strong self-taught background in cybersecurity, specializing in intrusion detection and digital forensics.
+                I have hands-on experience in penetration testing and system analysis, and I'm currently deepening my knowledge of Blue Team operations and defensive security.
+                I'm particularly interested in malware analysis and reverse engineering, and I'm actively learning C to strengthen my low-level programming and analysis skills.
+                Based in Buenos Aires, Argentina, I'm continuously working to grow as a cybersecurity professional.</p>
             </span>
           </article>
         </section>
         <section class="animate space-y-4">
           <div class="inline-block">
           <h2 class="font-semibold text-black dark:text-white">
-            ¡Hablemos!
+            Get in touch!
           </h2>
           <div class="h-1 bg-gray-500 mt-1 w-6"></div>
         </div>
@@ -83,11 +85,11 @@ const projects: CollectionEntry<"projects">[] = (
           <div class="flex flex-wrap items-center justify-between gap-y-2">
           <div class="inline-block">
             <h2 class="font-semibold text-black dark:text-white">
-              Ultimos posts
+              Latest posts
             </h2>
             <div class="h-1 bg-gray-500 mt-1 w-6"></div>
           </div>
-            <Link href="/blog"> Ver todos los posts </Link>
+            <Link href="/blog"> See all posts </Link>
           </div>
           <ul class="not-prose flex flex-col gap-4">
             {
@@ -104,11 +106,11 @@ const projects: CollectionEntry<"projects">[] = (
           <div class="flex flex-wrap items-center justify-between gap-y-2">
           <div class="inline-block">
             <h2 class="font-semibold text-black dark:text-white">
-              Proyectos recientes
+              Recent projects
             </h2>
             <h2 class="font-semibold text-black dark:text-white">
           </div>
-            <Link href="/projects"> Ver todos los proyectos </Link>
+            <Link href="/projects"> See all projects </Link>
           </div>
           <ul class="not-prose flex flex-col gap-4">
             {
