@@ -48,13 +48,13 @@
   body {
     @apply font-sans antialiased;
     @apply flex flex-col;
-    @apply bg-[#F2EBDF] dark:bg-[#000000];
+    @apply bg-[#F2EBDF] dark:bg-[#050A1A];
     @apply text-black/75 dark:text-white/75;
   }
 
   header {
     @apply fixed left-0 right-0 top-0 z-50 py-6;
-    @apply bg-[#F2EBDFbf] dark:bg-[#000000bf];
+    @apply bg-[#F2EBDFbf] dark:bg-[#050A1Abf];
     @apply backdrop-blur-xs;
   }
 
