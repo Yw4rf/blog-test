@@ -10,6 +10,9 @@ export default defineConfig({
   integrations: [sitemap(), mdx(), pagefind()],
   vite: {
     plugins: [tailwindcss()],
+    server: {
+      hmr: false,
+    },
   },
   markdown: {
     shikiConfig: {

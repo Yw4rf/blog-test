@@ -26,47 +26,33 @@ const projects: CollectionEntry<"projects">[] = (
 <Layout title={HOME.TITLE} description={HOME.DESCRIPTION}>
   <Container>
     <aside data-pagefind-ignore>
-      <div class="mb-6 mt-[-25px] relative">
+      <!---<div class="mb-6 mt-[-25px] relative">
         <Image src={indexImg} alt="gif-yw4rf" class="w-full h-60" />
-      </div>      
-      <h1 class="font-semibold text-[#0F1526] dark:text-[#ffffff]">
-        👨‍💻 Tobias Gabriel F. | Cybersecurity Enthusiast | SOC | DFIR | Hands-on Penetration Testing | CTF Player
-      </h1>
-      <div class="space-y-14">
-        <section>
-          <article class="space-y-0">
-            <span>
-              <p class="leading-relaxed">
-                I'm a Computer Networking student with a strong self-taught background in cybersecurity, specializing in intrusion detection and digital forensics.
-                I have hands-on experience in penetration testing and system analysis, and I'm currently deepening my knowledge of Blue Team operations and defensive security.
-                I'm particularly interested in malware analysis and reverse engineering, and I'm actively learning C to strengthen my low-level programming and analysis skills.
-                Based in Buenos Aires, Argentina, I'm continuously working to grow as a cybersecurity professional. <span><a href="/about" class="text-[#bd2a56]">More about me</a></span></p>
-            </span>
-          </article>
-          <div class="flex flex-col sm:flex-row gap-4">
-            <a href="https://app.hackthebox.com/profile/2035837">
-              <div class="pointer-events-none w-52 h-auto flex rounded shadow">
-                <img src="http://www.hackthebox.eu/badge/image/2035837" alt="yw4rf's hackthebox stats" class="">
-              </div>
-            </a>
-            <a href="https://cyberdefenders.org/p/Yw4rf">
-              <div class="pointer-events-none w-52 h-auto flex rounded shadow">
-                <img src="https://cyberdefenders-storage.s3.me-central-1.amazonaws.com/profile-badges/Yw4rf.png" alt="yw4rf's cyberdefenders badge" class="">
-              </div>
-            </a>
-          </div>                        
-      </section>
-        <section class="animate space-y-6">
-          <div class="flex flex-wrap items-center justify-between gap-y-2">
-          <div class="inline-block">
-            <h2 class="font-semibold text-black dark:text-white">
-              📝 Latest posts
-            </h2>
-            <div class="h-1 bg-[#872341] mt-1 w-12"></div>
+      </div>
+    -->
+    <div class="flex flex-col sm:flex-row items-start gap-4">
+      <div class="flex flex-col gap-4">
+        <a href="https://app.hackthebox.com/profile/2035837">
+          <div class="pointer-events-none w-52 h-auto rounded shadow">
+            <img src="http://www.hackthebox.eu/badge/image/2035837" alt="yw4rf's hackthebox stats">
           </div>
-            <Link href="/blog"> See all posts </Link>
+        </a>
+        <a href="https://cyberdefenders.org/p/Yw4rf">
+          <div class="pointer-events-none w-52 h-auto rounded shadow">
+            <img src="https://cyberdefenders-storage.s3.me-central-1.amazonaws.com/profile-badges/Yw4rf.png" alt="yw4rf's cyberdefenders badge">
           </div>
-          <ul class="not-prose flex flex-col gap-4">
+        </a>
+      </div>
+      <div class="flex-1">
+        <h1 class="font-bold text-[#0F1526] dark:text-[#ffffff] text-2xl">
+          👨‍💻 Tobias Gabriel F. | Cybersecurity Enthusiast | SOC | DFIR | Hands-on Penetration Testing | CTF Player
+        </h1>
+      </div>
+    </div>
+    
+      <div class="space-y-14 mt-10">
+        <section class="animate space-y-4">
+          <ul class="not-prose flex flex-col gap-2">
             {
               blog.map((post) => (
                 <li>
@@ -79,7 +65,7 @@ const projects: CollectionEntry<"projects">[] = (
         <section class="animate space-y-4">
           <div class="inline-block">
           <h2 class="font-semibold text-black dark:text-white">
-            📧 Contact me
+            Contact me
           </h2>
           <div class="h-1 bg-[#872341] mt-1 w-12"></div>
         </div>
@@ -116,7 +102,7 @@ const projects: CollectionEntry<"projects">[] = (
         <section>
           <section class="my-6">
             <h2 class="font-semibold text-black dark:text-white">
-              🔑 PGP Key
+              PGP Key
             </h2>
             <div class="h-1 bg-[#872341] mt-1 w-12"></div>
           </div>
