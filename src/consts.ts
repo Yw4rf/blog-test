@@ -4,7 +4,7 @@ export const SITE: Site = {
   TITLE: "トビアス・F (Yw4rf)",
   DESCRIPTION: "Tobias Gabriel F. | Cybersecurity Enthusiast | SOC | DFIR | Hands-on Penetration Testing | CTF Player",
   EMAIL: "yw4rf@protonmail.com",
-  NUM_POSTS_ON_HOMEPAGE: 2,
+  NUM_POSTS_ON_HOMEPAGE: 5,
   NUM_PROJECTS_ON_HOMEPAGE: 3,
 };
 

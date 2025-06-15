@@ -73,7 +73,7 @@ const { Content, headings } = await render(post);
       </h1>
       {
         post.data.tags && post.data.tags?.length > 0 ? (
-          <div class="animate flex gap-2 pt-1">
+          <div class="animate flex flex-wrap gap-2 pt-1">
             {post.data.tags.map((tag) => (
               <a
                 href={`/tags/${tag}`}
