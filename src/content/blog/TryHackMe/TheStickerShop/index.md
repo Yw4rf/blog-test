@@ -1,6 +1,6 @@
 ---
 title: "TryHackMe - TheStickerShop"
-description: "Vulnerabilidad XSS (Cross-Site Scripting) en el servidor web HTTP 80/TCP lo cual permitió ejecutar código JavaScript y realizar Data Exfiltration"
+description: "Vulnerabilidad XSS permitió ejecutar código JavaScript y realizar Data Exfiltration"
 date: "2024-12-05"
 tags:
   - TryHackMe
