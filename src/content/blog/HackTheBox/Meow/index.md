@@ -1,10 +1,9 @@
 ---
 title: "HackTheBox - Meow"
-description: "En esta resolución de la máquina Meow de la plataforma HackTheBox se explota una vulnerabilidad en Telnet aprovechado credenciales débiles y obtenido acceso como root."
+description: "Weak Credentials en el protocolo Telnet 23/TCP"
 date: "2024-09-03"
 tags:
   - HackTheBox
-  - Pentesting
   - Telnet 
   - Linux
 ---

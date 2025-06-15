@@ -1,9 +1,11 @@
 ---
-title: "Redeemer"
-description: "Enfoque en la seguridad del servicio Redis, puerto 6379."
+title: "HackTheBox - Redeemer"
+description: "Enfoque en la seguridad del servicio Redis 6379/TCP."
 date: "2024-09-05"
 tags:
   - Redis
+  - Linux
+  - HackTheBox
 ---
   ## Introducción
 
