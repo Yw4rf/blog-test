@@ -14,8 +14,6 @@ tags:
 
 DockerLabs es una plataforma gratuita diseñada para la práctica de hacking ético. En esta ocasión, abordaremos la máquina **FirstHacking**, en la cual aprenderemos a explotar una vulnerabilidad conocida en la versión `2.3.4` de **vsftpd**, un servicio FTP que opera en el puerto 21.
 
-![Yw4rf DockerLabs](firsthacking-1.png)
-
 ~~~
 Platform: DockerLabs
 Level: Very Easy
