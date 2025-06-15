@@ -44,14 +44,64 @@ const projects: CollectionEntry<"projects">[] = (
         </a>
       </div>
       <div class="flex-1">
-        <h1 class="font-bold text-[#0F1526] dark:text-[#ffffff] text-2xl">
-          👨‍💻 Tobias Gabriel F. | Cybersecurity Enthusiast | SOC | DFIR | Hands-on Penetration Testing | CTF Player
+        <h1 class="font-bold text-[#0F1526] dark:text-white text-2xl sm:text-3xl leading-tight">
+          Tobias Gabriel F.
         </h1>
+        <p class="mt-2 text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
+          Cybersecurity Enthusiast focused on <span class="font-medium">SOC</span>, <span class="font-medium">DFIR</span>, 
+          <span class="font-medium">Hands-on Penetration Testing</span>, and active <span class="font-medium">CTF Player</span>.
+        </p>
       </div>
     </div>
-    
+    <div class="mt-6 rounded-lg w-fit mx-auto space-y-4 font-sans">
+      <ul class="list-disc list-inside space-y-2 text-left">
+        <li>🌐 Student of <span class="font-medium">Computer Networks and Systems Administration</span></li>
+    <li>🔐 Passionate about <span class="font-medium">Cybersecurity and Ethical Hacking</span></li>
+    <li>
+          📨 Contact:
+          <ul class="list-[circle] list-inside ml-5 space-y-1">
+            <li>
+              ✉️ <span class="font-medium">Email:</span>
+              <code class="bg-gray-800 text-sm px-2 py-1 rounded inline-block text-gray-200">
+                echo 'eXc0cmZAcHJvdG9ubWFpbC5jb20K' | base64 -d
+              </code>
+            </li>
+            <li>
+              📬 <span class="font-medium">Telegram:</span>
+              <a href="https://t.me/yw4rf" class="text-blue-400 hover:underline" target="_blank">
+                t.me/yw4rf
+              </a>
+            </li>
+            <li>
+              💼 <span class="font-medium">Linkedin:</span>
+              <a href="https://linkedin.com/in/Yw4rf" class="text-blue-400 hover:underline" target="_blank">
+                linkedin.com/in/Yw4rf
+              </a>
+            </li>
+            <li>
+              🐙 <span class="font-medium">Github:</span>
+              <a href="https://github.com/Yw4rf" class="text-blue-400 hover:underline" target="_blank">
+                github.com/Yw4rf
+              </a>
+            </li>
+            <li>
+              🐦 <span class="font-medium">X:</span>
+              <a href="https://x.com/Yw4rf" class="text-blue-400 hover:underline" target="_blank">
+                https://x.com/Yw4rf
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>    
       <div class="space-y-14 mt-10">
         <section class="animate space-y-4">
+          <div class="inline-block">
+            <h2 class="font-semibold text-black dark:text-white">
+              Latest posts
+            </h2>
+            <div class="h-1 bg-[#94A3B8] mt-1 mb-1 w-12"></div>
+          </div>
           <ul class="not-prose flex flex-col gap-2">
             {
               blog.map((post) => (
@@ -62,49 +112,15 @@ const projects: CollectionEntry<"projects">[] = (
             }
           </ul>
         </section>
-        <section class="animate space-y-4">
-          <div class="inline-block">
-          <h2 class="font-semibold text-black dark:text-white">
-            Contact me
-          </h2>
-          <div class="h-1 bg-[#872341] mt-1 w-12"></div>
-        </div>
-          
-          <ul class="not-prose flex flex-col gap-2">
-            <li class="">
-              <Link
-                href={`mailto:${SITE.EMAIL}`}
-                aria-label={`Email ${SITE.TITLE}`} 
-              >
-                {SITE.EMAIL}
-              </Link>
-            </li>
-            {
-              SOCIALS.map((SOCIAL) => (
-              <li class="flex items-center gap-x-2">
-  <Link
-    href={SOCIAL.HREF}
-    external
-    aria-label={`${SITE.TITLE} on ${SOCIAL.NAME}`}
-  >
-    <span class="flex items-center gap-x-2">
-      {SOCIAL.ICON && (
-        <i class={SOCIAL.ICON} style={`color: ${SOCIAL.COLOR}`}></i>
-      )}
-      {SOCIAL.NAME}
-    </span>
-  </Link>
-</li>
-              ))
-            }
-          </ul>
-        </section>  
+        
         <section>
           <section class="my-6">
+            <div class="inline-block">
             <h2 class="font-semibold text-black dark:text-white">
               PGP Key
             </h2>
-            <div class="h-1 bg-[#872341] mt-1 w-12"></div>
+            <div class="h-1 bg-[#94A3B8] mt-1 w-12"></div>
+          </div>
           </div>
             <pre class="p-4 rounded overflow-x-auto text-base">
 -----BEGIN PGP PUBLIC KEY BLOCK-----
