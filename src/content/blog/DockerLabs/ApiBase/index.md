@@ -1,7 +1,7 @@
 ---
 title: "DockerLabs - ApiBase"
 description: "API Endpoints exposed and .PCAP file analized with Wireshark"
-date: "2025-03-11"
+date: "2024-10-01"
 tags:
   - DockersLabs
   - API
@@ -28,10 +28,10 @@ El comando **`nmap -sS -sV -p- -Pn -n -T4 10.10.11.38`** se emplea para escanear
 
 ## Enumeration
 
-#### 22/SSH
+### 22/SSH
 El puerto 22 ejecuta el servicio SSH versión **OpenSSH 8.4p1**. De momento no tenemos ninguna vulnerabilidad que aprovechar para esta versión.
 
-#### 5000/TCP
+### 5000/TCP
 El puerto 5000 ejecuta un servidor web HTTP **Werkzeug httpd 1.0.1** (Python 3.9.2). 
 
 Al acceder al sitio nos encontramos con el mensaje **`No endpoint selected. Please use /add to add a user or /users to query users`** 
@@ -117,4 +117,3 @@ Utilizamos el comando **`su root`** y luego ingresamos la credencial anteriormen
 ![Yw4rf ApiBase](apibase-15.png)
 
 **ROOTED**
----
