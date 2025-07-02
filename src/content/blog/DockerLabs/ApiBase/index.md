@@ -10,7 +10,6 @@ tags:
   - Wireshark
   - Linux
 ---
-
 ## Introduction
 
 Se enumeraron los endpoints de una API, identificando que `/users` exponía información de usuarios y credenciales. Mediante un ataque de fuerza bruta con **Caido**, se logró acceder a una cuenta. Posteriormente, dentro del servicio **SSH**, se encontró un archivo `.pcap` que contenía consultas relevantes. Al analizarlo con **Wireshark**, se identificaron credenciales o patrones que permitieron escalar privilegios y obtener acceso como **root**.
@@ -118,3 +117,4 @@ Utilizamos el comando **`su root`** y luego ingresamos la credencial anteriormen
 ![Yw4rf ApiBase](apibase-15.png)
 
 **ROOTED**
+---
