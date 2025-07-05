@@ -36,15 +36,15 @@ Type: SOC, Threat Hunting
 
 Utilizamos la herramienta **Wireshark*** para inspeccionar la captura de paquetes:
 
-![Noxious yw4rf](Noxious/noxiuos-1.png)
+![Noxious yw4rf](noxiuos-1.png)
 
 ``LLMNR, o Link-Local Multicast Name Resolution``, es un protocolo diseñado para resolver nombres en redes locales sin la necesidad de un servidor DNS centralizado. Es un estándar definido en la RFC 4795 y opera utilizando mensajes multicast sobre el puerto **UDP 5355**. Su principal función es permitir que los dispositivos dentro de una misma red se comuniquen entre sí y resuelvan nombres de host cuando no tienen acceso a un servidor DNS.
 
-![Noxious yw4rf](Noxious/noxiuos-2.png)
+![Noxious yw4rf](noxiuos-2.png)
 
 ### Traffic Analysis
 
-![Noxious yw4rf](Noxious/noxiuos-3.png)
+![Noxious yw4rf](noxiuos-3.png)
 
 #### Task #1 
 
@@ -56,9 +56,9 @@ Después de la consulta inicial realizada por `172.17.79.136`, la IP `172.17.79.
 
 El análisis del tráfico sugiere que el atacante (`172.17.79.135`) utilizó LLMNR para engañar al dispositivo de la víctima (`172.17.79.136`), probablemente redirigiendo tráfico o capturando credenciales sensibles como hashes NTLMv2. Esto ocurre porque LLMNR no tiene autenticación robusta y permite respuestas a cualquier dispositivo en la red local.
 
-![Noxious yw4rf](Noxious/noxiuos-4.png)
+![Noxious yw4rf](noxiuos-4.png)
 
-![Noxious yw4rf](Noxious/task-1.png)
+![Noxious yw4rf](task-1.png)
 
 #### Task #2
 
@@ -66,13 +66,13 @@ El análisis del tráfico sugiere que el atacante (`172.17.79.135`) utilizó LLM
 
 Es posible identificar el hostname del dispositivo atacante filtrando el tráfico de la dirección IP y DHCP en Wireshark utilizando el filtro `ip.addr==172.17.79.135 && dhcp`
 
-![Noxious yw4rf](Noxious/noxiuos-5.png)
+![Noxious yw4rf](noxiuos-5.png)
 
 Una vez aplicado el filtro, se analizan los paquetes DHCP, especialmente los mensajes **DHCP Discover**, **Request** o **ACK**. En estos paquetes, existe un campo llamado **Hostname** (opción 12), que generalmente contiene el nombre del dispositivo proporcionado por el cliente durante el intercambio DHCP.
 
-![Noxious yw4rf](Noxious/noxiuos-6.png)
+![Noxious yw4rf](noxiuos-6.png)
 
-![Noxious yw4rf](Noxious/task-2.png)
+![Noxious yw4rf](task-2.png)
 
 #### Task #3
 
@@ -87,9 +87,9 @@ Entre los paquetes filtrados, identificamos una **Session Setup Request** para e
 
 La fase **NTLMSSP_AUTH** indica que el hash de la contraseña del usuario ha sido enviado y, si es interceptado, puede ser capturado.
 
-![Noxious yw4rf](Noxious/noxiuos-7.png)
+![Noxious yw4rf](noxiuos-7.png)
 
-![Noxious yw4rf](Noxious/task-3.png)
+![Noxious yw4rf](task-3.png)
 
 #### Task #4
 
@@ -99,9 +99,9 @@ Para identificar el tiempo exacto en el que los hashes fueron capturados por pri
 
 Una vez que hecha la configuración, con el filtro `ntlmssp` de **Wireshark** es posible buscar en los paquetes la **primera solicitud al protocolo SMB2** con el mensaje **NTLMSSP AUTH**, que es donde se envía el hash de la contraseña. Al localizar este paquete en el análisis de tráfico de Wireshark, se observa la **fecha y hora exacta** en la que se realizó esta solicitud. Esto marca el momento en el que los hashes fueron capturados por primera vez.
 
-![Noxious yw4rf](Noxious/noxiuos-8.png)
+![Noxious yw4rf](noxiuos-8.png)
 
-![Noxious yw4rf](Noxious/task-4.png)
+![Noxious yw4rf](task-4.png)
 
 #### Task #5
 
@@ -115,9 +115,9 @@ En este momento, el **atacante** entra en escena. Su máquina maliciosa está co
 
 Al filtrar los paquetes LLMNR en Wireshark mediante `ip.addr 172.17.79.135 && llmnr`, se puede observar que el atacante respondió a la consulta de la víctima, proporcionando una respuesta falsa. Se observa "DCC01" en lugar de "DC01". Esto confirma que la víctima intentó acceder a un nombre incorrecto debido al error tipográfico en su solicitud.
 
-![Noxious yw4rf](Noxious/noxiuos-9.png)
+![Noxious yw4rf](noxiuos-9.png)
 
-![Noxious yw4rf](Noxious/task-5.png)
+![Noxious yw4rf](task-5.png)
 
 #### Task #6
 
@@ -129,9 +129,9 @@ Para encontrar el **NTLM Server Challenge** en Wireshark, se utiliza el filtro `
 
 **Session Setup Response → Security Blob → GSS-API Generic → SimpleProtected Negotiation → negTokenTarg → NTLM Secure Service Provider → NTLM Server Challenge.**
 
-![Noxious yw4rf](Noxious/noxiuos-10.png)
+![Noxious yw4rf](noxiuos-10.png)
 
-![Noxious yw4rf](Noxious/task-6.png)
+![Noxious yw4rf](task-6.png)
 
 #### Task #7
 
@@ -145,9 +145,9 @@ El **NTProofstr** es parte de este cálculo y contiene la cadena de prueba que e
 
 **Session Setup Request** -> **Security Blob** -> **GSS-API Generic** -> **Simple Protected Negotiation** -> **negTokenTarg** -> **NTLM Secure Service Provider** -> **NTLM Response** -> **NTLMv2 Response** -> **NTProofStr**
 
-![Noxious yw4rf](Noxious/noxiuos-11.png)
+![Noxious yw4rf](noxiuos-11.png)
 
-![Noxious yw4rf](Noxious/task-7.png)
+![Noxious yw4rf](task-7.png)
 
 
 #### Task #8
@@ -172,10 +172,10 @@ Una vez creado este archivo con la información correcta, se utiliza la herramie
 
 Este comando realiza un ataque de diccionario sobre el hash con el archivo de contraseñas `rockyou.txt`, que contiene una lista común de contraseñas, para intentar encontrar la contraseña de la víctima. Este proceso ayuda a evaluar la complejidad de la contraseña y determinar si el atacante pudo descifrarla y, en caso afirmativo, cuánto tiempo le habría llevado hacerlo.
 
-![Noxious yw4rf](Noxious/noxiuos-12.png)
+![Noxious yw4rf](noxiuos-12.png)
 
 
-![Noxious yw4rf](Noxious/task-8.png)
+![Noxious yw4rf](task-8.png)
 
 
 #### Task #11
@@ -184,11 +184,11 @@ Este comando realiza un ataque de diccionario sobre el hash con el archivo de co
 
 Al aplicar un filtro en **Wireshark** para capturar paquetes `smb2`, es posible observar que el atacante realizó solicitudes de conexión y accedió correctamente a dos recursos compartidos específicos: `\\DC01\IPC$` y `\\DC01\DC Confidential`. Esto se puede confirmar al analizar los paquetes `Tree Connect Request` y `Tree Connect Response`, que contienen la información sobre las solicitudes y respuestas de conexión a estos recursos. A partir de la información obtenida, podemos inferir que el recurso compartido que el atacante tenía como objetivo principal era `\\DC01\DC Confidential`.
 
-![Noxious yw4rf](Noxious/noxiuos-13.png)
+![Noxious yw4rf](noxiuos-13.png)
 
 
-![Noxious yw4rf](Noxious/task-9.png)
+![Noxious yw4rf](task-9.png)
 
 [Verify Achievment](https://labs.hackthebox.com/achievement/sherlock/2035837/747)
 
-![Noxious yw4rf](Noxious/noxiuos-pwnd.png)
+![Noxious yw4rf](noxiuos-pwnd.png)
