@@ -24,11 +24,11 @@ OS: Windows
 Type: SOC, Threat Hunting
 ~~~
 
-### Sherlock Scenario
+## Sherlock Scenario
 
 > El dispositivo IDS nos alertó sobre la posible presencia de un dispositivo no autorizado en la red interna de Active Directory. El Sistema de Detección de Intrusos también indicó señales de tráfico LLMNR, lo cual es inusual. Se sospecha que ocurrió un ataque de envenenamiento de LLMNR. El tráfico LLMNR estaba dirigido hacia Forela-WKstn002, que tiene la dirección IP 172.17.79.136. Se te proporciona una captura de paquetes limitada correspondiente al momento del incidente, como nuestro experto en Forense de Redes. Dado que esto ocurrió en la VLAN de Active Directory, se sugiere realizar Threat Hunting en la red teniendo en cuenta el vector de ataque de Active Directory, enfocándose específicamente en el envenenamiento de LLMNR.
 
-### Key Information
+## Key Information
 
 - ``LLMNR`` (Link-Local Multicast Name Resolution) es un protocolo de resolución de nombres en redes locales. Su tráfico puede ser utilizado por atacantes para realizar un ataque de **envenenamiento de LLMNR** y capturar credenciales. Este ataque suele implicar el uso de herramientas como _Responder_ para engañar a los hosts en la red y capturar hashes NTLMv2 o NTLMv1.
 
@@ -42,11 +42,11 @@ Utilizamos la herramienta **Wireshark*** para inspeccionar la captura de paquete
 
 ![Noxious yw4rf](noxiuos-2.png)
 
-### Traffic Analysis
+## Traffic Analysis
 
 ![Noxious yw4rf](noxiuos-3.png)
 
-#### Task #1 
+### Task #1 
 
 > Its suspected by the security team that there was a rogue device in Forela's internal network running responder tool to perform an LLMNR Poisoning attack. Please find the malicious IP Address of the machine.
 
@@ -60,7 +60,7 @@ El análisis del tráfico sugiere que el atacante (`172.17.79.135`) utilizó LLM
 
 ![Noxious yw4rf](task-1.png)
 
-#### Task #2
+### Task #2
 
 > What is the hostname of the rogue machine? 
 
@@ -74,7 +74,7 @@ Una vez aplicado el filtro, se analizan los paquetes DHCP, especialmente los men
 
 ![Noxious yw4rf](task-2.png)
 
-#### Task #3
+### Task #3
 
 > Now we need to confirm whether the attacker captured the user's hash and it is crackable!! What is the username whose hash was captured?
 
@@ -91,7 +91,7 @@ La fase **NTLMSSP_AUTH** indica que el hash de la contraseña del usuario ha sid
 
 ![Noxious yw4rf](task-3.png)
 
-#### Task #4
+### Task #4
 
 > In NTLM traffic we can see that the victim credentials were relayed multiple times to the attacker's machine. When were the hashes captured the First time?
 
@@ -103,7 +103,7 @@ Una vez que hecha la configuración, con el filtro `ntlmssp` de **Wireshark** es
 
 ![Noxious yw4rf](task-4.png)
 
-#### Task #5
+### Task #5
 
 > What was the typo made by the victim when navigating to the file share that caused his credentials to be leaked?
 
@@ -119,7 +119,7 @@ Al filtrar los paquetes LLMNR en Wireshark mediante `ip.addr 172.17.79.135 && ll
 
 ![Noxious yw4rf](task-5.png)
 
-#### Task #6
+### Task #6
 
 > To get the actual credentials of the victim user we need to stitch together multiple values from the ntlm negotiation packets. What is the NTLM server challenge value?
 
@@ -133,7 +133,7 @@ Para encontrar el **NTLM Server Challenge** en Wireshark, se utiliza el filtro `
 
 ![Noxious yw4rf](task-6.png)
 
-#### Task #7
+### Task #7
 
 > Now doing something similar find the NTProofStr value.
 
@@ -150,7 +150,7 @@ El **NTProofstr** es parte de este cálculo y contiene la cadena de prueba que e
 ![Noxious yw4rf](task-7.png)
 
 
-#### Task #8
+### Task #8
 
 > To test the password complexity, try recovering the password from the information found from packet capture. This is a crucial step as this way we can find whether the attacker was able to crack this and how quickly.
 
@@ -178,7 +178,7 @@ Este comando realiza un ataque de diccionario sobre el hash con el archivo de co
 ![Noxious yw4rf](task-8.png)
 
 
-#### Task #11
+### Task #11
 
 > Just to get more context surrounding the incident, what is the actual file share that the victim was trying to navigate to?
 
