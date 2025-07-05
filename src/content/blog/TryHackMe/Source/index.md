@@ -1,13 +1,13 @@
 ---
 title: "TryHackMe - Source"
-description: "Webmin 1.890 Vulnerability Backdoor RCE exploit CVE-2019-15107"
+description: "Webmin 1.890 CVE-2019-15107 Vulnerability Exploitation and Privilege Escalation"
 date: "2024-10-15"
 tags:
-  - Linux
+  - DockerLabs
   - Webmin
   - CVE Exploitation
   - Reverse Shell
-  - SUID Privesc
+  - Linux
 ---
 
 ## Introducción
@@ -134,5 +134,4 @@ Una vez tratada la tty verificamos si somos **root**
  
 ![Source yw4rf](source-20.png)
 
-Somos **root** y tenemos control total de la máquina, por lo tanto la hemos finalizado. Restaria encontrar las **flags**
----
+Somos *root* y tenemos control total de la máquina, por lo tanto la hemos finalizado. Restaria encontrar las *flags*.

@@ -3,7 +3,7 @@ title: "DockerLabs - ApiBase"
 description: "API Endpoints exposed and .PCAP file analized with Wireshark"
 date: "2025-03-11"
 tags:
-  - DockersLabs
+  - DockerLabs
   - API
   - Caido 
   - Brute-Force Attack
